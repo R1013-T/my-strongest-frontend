@@ -10,5 +10,5 @@ pre-commit:
   jobs:
     - run: pnpm eslint {staged_files} --fix
       glob: '*.{js,ts,jsx,tsx}'
-    - run: pnpm markdownlint {staged_files}
+    - run: pnpm markuplint {staged_files}
       glob: '*.{jsx,tsx}'
