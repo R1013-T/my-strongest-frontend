@@ -12,6 +12,7 @@ export default function HomeMain() {
       <Button intent="secondary">Secondary Button</Button>
       <Button intent="warning">Warning Button</Button>
       <Button intent="danger">Danger Button</Button>
+      <Button isDisabled>Disabled Button</Button>
       <ToggleButton />
     </main>
   )
