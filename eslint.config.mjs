@@ -1,16 +1,25 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import antfu from '@antfu/eslint-config'
+import { FlatCompat } from '@eslint/eslintrc'
+import eslintPluginreactCompiler from 'eslint-plugin-react-compiler'
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  baseDirectory: path.dirname(fileURLToPath(import.meta.url)),
+})
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
-
-export default eslintConfig;
+export default antfu(
+  {
+    react: true,
+  },
+  {
+    name: 'load-plugins',
+    plugins: { 'react-compiler': eslintPluginreactCompiler },
+  },
+  {
+    name: 'rules',
+    rules: { 'react-compiler/react-compiler': 'error' },
+  },
+  ...compat.extends('plugin:@next/next/core-web-vitals'),
+  { settings: { tailwindcss: { callees: ['cn'] } } },
+)
