@@ -14,9 +14,6 @@
       "~/*": [
         "./src/*"
       ],
-      "ui": [
-        "./src/components/ui/index.ts"
-      ]
     },
     "resolveJsonModule": true,
     "allowJs": true,

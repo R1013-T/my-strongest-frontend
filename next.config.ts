@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   experimental: {
     ppr: true,
     dynamicIO: true,
-    // reactCompiler: true,
+    reactCompiler: true,
   },
 }
 
